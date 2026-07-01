@@ -1,0 +1,102 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "components/acceo-global-table-v2/ColumnSelectorPanel/**",
+              "components/acceo-global-table-v2/GroupButton/**",
+              "components/acceo-global-table-v2/PulseDots/**",
+              "components/acceo-global-table-v2/SortableLabel/**",
+              "components/acceo-universal-table/TableFilters/**",
+              "components/design-system/DesignSystemProvider/**"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "JSXOpeningElement[name.name='ColumnSelectorPanel'] > JSXAttribute > JSXIdentifier[name!=/^(?:columns|hidden|onToggleVisible|onReorder|onClose|key|ref|className|style|children)$/]",
+        "message": "<ColumnSelectorPanel> doesn't accept that prop. Declared props: columns, hidden, onToggleVisible, onReorder, onClose."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='DesignSystemProvider'] > JSXAttribute > JSXIdentifier[name!=/^(?:children|primaryColor|direction|key|ref|className|style|children)$/]",
+        "message": "<DesignSystemProvider> doesn't accept that prop. Declared props: children, primaryColor, direction."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='DesignSystemProvider'] > JSXAttribute[name.name='primaryColor'] > Literal[value!=/^(?:chateauGreen|acceoBlue|royalBlue|tomatoOrange)$/]",
+        "message": "<DesignSystemProvider> primaryColor must be one of 'chateauGreen' | 'acceoBlue' | 'royalBlue' | 'tomatoOrange'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='DesignSystemProvider'] > JSXAttribute[name.name='direction'] > Literal[value!=/^(?:ltr|rtl)$/]",
+        "message": "<DesignSystemProvider> direction must be one of 'ltr' | 'rtl'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='GroupButton'] > JSXAttribute > JSXIdentifier[name!=/^(?:columns|groupBy|onChange|disabled|iconOnly|key|ref|className|style|children)$/]",
+        "message": "<GroupButton> doesn't accept that prop. Declared props: columns, groupBy, onChange, disabled, iconOnly."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SortableLabel'] > JSXAttribute > JSXIdentifier[name!=/^(?:label|sortable|active|direction|onSort|muted|key|ref|className|style|children)$/]",
+        "message": "<SortableLabel> doesn't accept that prop. Declared props: label, sortable, active, direction, onSort, muted."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SortableLabel'] > JSXAttribute[name.name='direction'] > Literal[value!=/^(?:asc|desc)$/]",
+        "message": "<SortableLabel> direction must be one of 'asc' | 'desc'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='TableFilters'] > JSXAttribute > JSXIdentifier[name!=/^(?:columns|tableState|onGlobalFilterChange|filterOptions|loadingFilters|onFilterChange|onClearFilter|onClearAllFilters|activeFiltersCount|showFilterPanel|setShowFilterPanel|disabled|toolbarStart|toolbarActions|hideSearch|hideFilters|iconOnly|key|ref|className|style|children)$/]",
+        "message": "<TableFilters> doesn't accept that prop. Declared props: columns, tableState, onGlobalFilterChange, filterOptions, loadingFilters, onFilterChange, onClearFilter, onClearAllFilters, activeFiltersCount, showFilterPanel, setShowFilterPanel, disabled, toolbarStart, toolbarActions, hideSearch, hideFilters, iconOnly."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {
+      "ColumnSelectorPanel": {
+        "replaces": []
+      },
+      "DesignSystemProvider": {
+        "replaces": []
+      },
+      "GroupButton": {
+        "replaces": []
+      },
+      "PulseDots": {
+        "replaces": []
+      },
+      "SortableLabel": {
+        "replaces": []
+      },
+      "TableFilters": {
+        "replaces": []
+      }
+    },
+    "tokens": [],
+    "tokenKinds": {},
+    "fontFamilies": []
+  }
+}

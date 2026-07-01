@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;scroll-padding-top:78px;}
+  body{margin:0;background:#FAF8F2;}
+  ::selection{background:#E8A33D;color:#0A3325;}
+  @keyframes fadeup{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:none;}}
+  @keyframes fadein{from{opacity:0;}to{opacity:1;}}
+  @keyframes heroIn{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:none;}}
+  @keyframes growx{from{transform:scaleX(0);}to{transform:scaleX(1);}}
+  @keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(7px);}}
+  @keyframes pop{from{opacity:0;transform:scale(.94);}to{opacity:1;transform:none;}}
+</style>
+</helmet>
+
+<div dir="{{ dir }}" style="font-family:'Plus Jakarta Sans','Cairo',sans-serif;color:#16211B;background:#FAF8F2;overflow-x:hidden;">
+
+  <!-- scroll progress -->
+  <div style="position:fixed;top:0;left:0;right:0;height:3px;z-index:120;background:transparent;pointer-events:none;">
+    <div style="height:100%;width:100%;transform-origin:left;background:linear-gradient(90deg,#137A4F,#E8A33D);animation:growx linear both;animation-timeline:scroll(root);"></div>
+  </div>
+
+  <!-- ===== NAV ===== -->
+  <nav style="position:sticky;top:0;z-index:100;background:rgba(250,248,242,0.82);backdrop-filter:blur(14px);border-bottom:1px solid #E6E0D2;">
+    <div style="max-width:1240px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:13px 26px;">
+      <a href="#top" style="display:flex;align-items:center;gap:12px;text-decoration:none;flex-shrink:0;">
+        <span style="display:inline-flex;background:#0E5C3B;padding:6px;border-radius:12px;box-shadow:0 6px 18px rgba(14,92,59,.28);"><img src="assets/eb068b81-a16a-4c36-84a6-ffa4f8a99819.png" alt="House Cart" style="width:36px;height:36px;border-radius:8px;display:block;"></span>
+        <span style="line-height:1;"><span style="font-family:'Cairo',sans-serif;font-weight:800;font-size:17px;color:#0E5C3B;letter-spacing:.01em;display:block;">HOUSE CART</span><span style="font-family:'Cairo',sans-serif;font-size:12px;color:#8A9689;font-weight:600;">عربة البيت</span></span>
+      </a>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <div style="display:none;align-items:center;gap:26px;margin-inline-end:6px;" data-navlinks>
+          <a href="#about" style="font-size:14px;font-weight:600;color:#40493F;text-decoration:none;" style-hover="color:#0E5C3B;">{{ t.nav_about }}</a>
+          <a href="#products" style="font-size:14px;font-weight:600;color:#40493F;text-decoration:none;" style-hover="color:#0E5C3B;">{{ t.nav_products }}</a>
+          <a href="#channels" style="font-size:14px;font-weight:600;color:#40493F;text-decoration:none;" style-hover="color:#0E5C3B;">{{ t.nav_channels }}</a>
+          <a href="#network" style="font-size:14px;font-weight:600;color:#40493F;text-decoration:none;" style-hover="color:#0E5C3B;">{{ t.nav_network }}</a>
+          <a href="#resources" style="font-size:14px;font-weight:600;color:#40493F;text-decoration:none;" style-hover="color:#0E5C3B;">{{ t.nav_resources }}</a>
+        </div>
+        <div style="display:inline-flex;border:1px solid #D8D1C0;border-radius:100px;overflow:hidden;background:#fff;">
+          <button onClick="{{ setEn }}" style="{{ enBtn }}">EN</button>
+          <button onClick="{{ setAr }}" style="{{ arBtn }}">ع</button>
+        </div>
+        <a href="#contact" style="background:#0E5C3B;color:#fff;font-weight:700;font-size:13.5px;padding:11px 20px;border-radius:100px;text-decoration:none;white-space:nowrap;" style-hover="background:#0b4b30;">{{ t.nav_cta }}</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <header id="top" style="position:relative;overflow:hidden;">
+    <div style="position:relative;min-height:min(88vh,760px);display:flex;align-items:center;">
+      <img src="assets/0fe793a3-97ce-4483-93f9-a0ecb54ab409.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+      <div style="position:absolute;inset:0;background:linear-gradient(105deg,rgba(9,45,32,.95) 0%,rgba(11,60,40,.86) 44%,rgba(14,92,59,.34) 100%);"></div>
+      <div style="position:absolute;inset:0;background:radial-gradient(120% 90% at 0% 100%,rgba(232,163,61,.22),transparent 55%);"></div>
+      <div style="position:relative;padding:72px 26px;max-width:1240px;margin:0 auto;width:100%;">
+        <div style="max-width:780px;">
+          <div style="display:inline-flex;align-items:center;gap:10px;background:#E8A33D;color:#1C1B19;padding:9px 18px;border-radius:100px;font-weight:800;font-size:12.5px;margin-bottom:24px;animation:heroIn .8s cubic-bezier(.2,.7,.2,1) both;">
+            <span style="width:7px;height:7px;border-radius:50%;background:#0E5C3B;"></span>{{ t.hero_badge }}
+          </div>
+          <h1 style="font-family:'Cairo',sans-serif;font-weight:800;font-size:clamp(32px,6vw,60px);line-height:1.04;color:#fff;letter-spacing:-.02em;margin:0 0 16px;animation:heroIn .8s cubic-bezier(.2,.7,.2,1) .08s both;">{{ t.hero_title }}</h1>
+          <div style="font-family:'Cairo',sans-serif;font-weight:700;font-size:clamp(20px,3.6vw,28px);color:#F2C04A;margin-bottom:20px;animation:heroIn .8s cubic-bezier(.2,.7,.2,1) .16s both;">{{ t.hero_title_alt }}</div>
+          <p style="font-size:clamp(15px,2vw,18px);color:#DCE7DD;line-height:1.6;max-width:56ch;margin:0 0 32px;animation:heroIn .8s cubic-bezier(.2,.7,.2,1) .24s both;">{{ t.hero_sub }}</p>
+          <div style="display:flex;gap:14px;flex-wrap:wrap;animation:heroIn .8s cubic-bezier(.2,.7,.2,1) .32s both;">
+            <a href="#products" style="background:#E8A33D;color:#1C1B19;font-weight:800;font-size:15px;padding:15px 28px;border-radius:100px;text-decoration:none;" style-hover="background:#d8942f;transform:translateY(-2px);">{{ t.hero_cta1 }}</a>
+            <a href="#contact" style="background:rgba(255,255,255,.10);color:#fff;font-weight:700;font-size:15px;padding:15px 28px;border-radius:100px;text-decoration:none;border:1px solid rgba(255,255,255,.4);" style-hover="background:rgba(255,255,255,.2);">{{ t.hero_cta2 }}</a>
+          </div>
+        </div>
+        <a href="#stats" style="position:absolute;bottom:22px;inset-inline-end:26px;color:#DCE7DD;font-size:12px;font-weight:600;text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:6px;opacity:.85;">
+          <span style="letter-spacing:.14em;text-transform:uppercase;">{{ t.scroll }}</span>
+          <span style="animation:bob 1.8s ease-in-out infinite;font-size:16px;">↓</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== STATS ===== -->
+  <section id="stats" style="background:#0B3C28;">
+    <div style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));">
+      <div style="padding:34px 24px;text-align:center;border-inline-end:1px solid rgba(255,255,255,.09);"><div data-count data-to="1000" data-prefix="+" style="font-family:'Cairo',sans-serif;font-weight:900;font-size:clamp(34px,5vw,46px);color:#F2C04A;line-height:1;">+1000</div><div style="font-size:13px;color:#BFD2C5;margin-top:8px;font-weight:600;letter-spacing:.02em;">{{ t.stat_products }}</div></div>
+      <div style="padding:34px 24px;text-align:center;border-inline-end:1px solid rgba(255,255,255,.09);"><div data-count data-to="50" data-prefix="+" style="font-family:'Cairo',sans-serif;font-weight:900;font-size:clamp(34px,5vw,46px);color:#F2C04A;line-height:1;">+50</div><div style="font-size:13px;color:#BFD2C5;margin-top:8px;font-weight:600;letter-spacing:.02em;">{{ t.stat_brands }}</div></div>
+      <div style="padding:34px 24px;text-align:center;border-inline-end:1px solid rgba(255,255,255,.09);"><div data-count data-to="100" data-prefix="+" style="font-family:'Cairo',sans-serif;font-weight:900;font-size:clamp(34px,5vw,46px);color:#F2C04A;line-height:1;">+100</div><div style="font-size:13px;color:#BFD2C5;margin-top:8px;font-weight:600;letter-spacing:.02em;">{{ t.stat_clients }}</div></div>
+      <div style="padding:34px 24px;text-align:center;"><div data-count data-to="10" data-prefix="+" style="font-family:'Cairo',sans-serif;font-weight:900;font-size:clamp(34px,5vw,46px);color:#F2C04A;line-height:1;">+10</div><div style="font-size:13px;color:#BFD2C5;margin-top:8px;font-weight:600;letter-spacing:.02em;">{{ t.stat_cities }}</div></div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about" style="max-width:1240px;margin:0 auto;padding:90px 26px 20px;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:54px;align-items:center;">
+      <div style="animation:fadeup both;animation-timeline:view();animation-range:entry 4% cover 32%;">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;"><span style="width:28px;height:2px;background:#E8A33D;"></span><span style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#137A4F;font-weight:800;">{{ t.about_eyebrow }}</span></div>
+        <h2 style="font-family:'Cairo',sans-serif;font-weight:800;font-size:clamp(28px,4.4vw,42px);color:#0E5C3B;margin:0 0 16px;line-height:1.12;">{{ t.about_title }}</h2>
+        <p style="font-size:16px;color:#55645A;line-height:1.65;max-width:52ch;margin:0;">{{ t.about_body }}</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:30px;">
+          <sc-for list="{{ caps }}" as="c" hint-placeholder-count="4">
+            <div style="background:#fff;border:1px solid #E6E0D2;border-radius:16px;padding:20px;" style-hover="transform:translateY(-3px);box-shadow:0 16px 34px rgba(14,92,59,.12);">
+              <div style="font-family:'Cairo',sans-serif;font-weight:900;font-size:22px;color:{{ c.color }};">{{ c.n }}</div>
+              <div style="font-weight:700;font-size:15px;margin:8px 0 4px;color:#16211B;">{{ c.title }}</div>
+              <div style="font-size:12.5px;color:#68746B;line-height:1.5;">{{ c.desc }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="position:relative;animation:fadeup both;animation-timeline:view();animation-range:entry 4% cover 32%;">
+        <img src="assets/b2f90314-360b-4457-a57b-c22c9735e169.jpg" alt="" style="width:100%;height:min(64vh,540px);object-fit:cover;border-radius:22px;display:block;box-shadow:0 30px 60px rgba(14,92,59,.2);">
+        <div style="position:absolute;inset-inline-start:-14px;bottom:26px;background:#E8A33D;color:#0A3325;border-radius:16px;padding:18px 22px;box-shadow:0 18px 40px rgba(0,0,0,.2);max-width:230px;">
+          <div style="font-family:'Cairo',sans-serif;font-weight:900;font-size:26px;line-height:1;">{{ t.about_chip_num }}</div>
+          <div style="font-size:12.5px;font-weight:700;margin-top:6px;line-height:1.4;">{{ t.about_chip_label }}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRODUCTS ===== -->
+  <section id="products" style="background:#F4EFE3;padding:88px 26px;margin-top:70px;">
+    <div style="max-width:1240px;margin:0 auto;">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:26px;">
+        <div>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;"><span style="width:28px;height:2px;background:#E8A33D;"></span><span style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#137A4F;font-weight:800;">{{ t.products_eyebrow }}</span></div>
+          <h2 style="font-family:'Cairo',sans-serif;font-weight:800;font-size:clamp(28px,4.4vw,42px);color:#0E5C3B;margin:0;">{{ t.products_title }}</h2>
+        </div>
+        <div style="position:relative;flex:1;min-width:230px;max-width:340px;">
+          <span style="position:absolute;inset-inline-start:16px;top:50%;transform:translateY(-50%);color:#9AA79A;font-size:15px;">⌕</span>
+          <input type="text" onInput="{{ onSearch }}" placeholder="{{ t.search_ph }}" style="width:100%;border:1px solid #D8D1C0;background:#fff;border-radius:100px;padding:13px 18px 13px 40px;font-size:14px;font-family:inherit;color:#16211B;outline:none;" style-focus="border-color:#137A4F;box-shadow:0 0 0 3px rgba(19,122,79,.12);">
+        </div>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:9px;margin-bottom:28px;">
+        <sc-for list="{{ chips }}" as="c" hint-placeholder-count="8">
+          <button onClick="{{ c.select }}" style="{{ c.style }}">{{ c.label }}<span style="opacity:.6;font-weight:600;margin-inline-start:6px;">{{ c.count }}</span></button>
+        </sc-for>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:16px;">
+        <sc-for list="{{ products }}" as="p" hint-placeholder-count="8">
+          <button onClick="{{ p.open }}" style="text-align:start;border:1px solid #E6E0D2;background:#fff;border-radius:18px;overflow:hidden;padding:0;cursor:pointer;font-family:inherit;display:block;animation:pop .4s ease both;" style-hover="transform:translateY(-4px);box-shadow:0 20px 42px rgba(14,92,59,.16);border-color:#CFE2D4;">
+            <div style="position:relative;height:150px;overflow:hidden;background:#E7EFE7;">
+              <div style="position:absolute;inset:0;background-size:cover;background-position:center;background-image:url('{{ p.img }}');"></div>
+              <span style="position:absolute;top:10px;inset-inline-start:10px;background:rgba(11,60,40,.9);color:#F2C04A;font-size:10.5px;font-weight:700;padding:5px 10px;border-radius:100px;letter-spacing:.02em;">{{ p.catLabel }}</span>
+            </div>
+            <div style="padding:15px 16px 17px;">
+              <div style="font-weight:700;font-size:15px;color:#16211B;line-height:1.25;">{{ p.name }}</div>
+              <div style="font-size:12.5px;color:#68746B;margin-top:4px;line-height:1.4;">{{ p.desc }}</div>
+            </div>
+          </button>
+        </sc-for>
+      </div>
+      <sc-if value="{{ noResults }}" hint-placeholder-val="{{ false }}">
+        <div style="text-align:center;padding:50px 20px;color:#8A9689;font-size:15px;">{{ t.no_results }}</div>
+      </sc-if>
+    </div>
+  </section>
+
+  <!-- ===== CHANNELS ===== -->
+  <section id="channels" style="max-width:1240px;margin:0 auto;padding:90px 26px;">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;"><span style="width:28px;height:2px;background:#E8A33D;"></span><span style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#137A4F;font-weight:800;">{{ t.channels_eyebrow }}</span></div>
+    <h2 style="font-family:'Cairo',sans-serif;font-weight:800;font-size:clamp(28px,4.4vw,42px);color:#0E5C3B;margin:0 0 30px;">{{ t.channels_title }}</h2>
+
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px;">
+      <sc-for list="{{ tabs }}" as="tb" hint-placeholder-count="3">
+        <button onClick="{{ tb.select }}" style="{{ tb.style }}">{{ tb.label }}</button>
+      </sc-for>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px;align-items:center;background:#fff;border:1px solid #E6E0D2;border-radius:24px;overflow:hidden;">
+      <div style="position:relative;min-height:320px;height:100%;background:#E7EFE7;">
+        <div style="position:absolute;inset:0;background-size:cover;background-position:center;background-image:url('{{ active.img }}');animation:fadein .5s ease both;"></div>
+      </div>
+      <div style="padding:36px 40px 40px;">
+        <div style="font-family:'Cairo',sans-serif;font-weight:800;font-size:26px;color:#0E5C3B;">{{ active.name }}</div>
+        <div style="font-family:'Cairo',sans-serif;font-size:14px;color:#E8A33D;font-weight:700;margin:4px 0 14px;">{{ active.alt }}</div>
+        <p style="font-size:15px;color:#55645A;line-height:1.65;margin:0 0 20px;max-width:48ch;">{{ active.desc }}</p>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <sc-for list="{{ active.points }}" as="pt" hint-placeholder-count="3">
+            <div style="display:flex;align-items:flex-start;gap:12px;">
+              <span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#EAF2EC;color:#137A4F;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:1px;">✓</span>
+              <span style="font-size:14px;color:#33403A;line-height:1.5;">{{ pt }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== NETWORK / FACILITIES ===== -->
+  <section id="network" style="background:#0B3C28;color:#fff;padding:88px 26px;">
+    <div style="max-width:1240px;margin:0 auto;">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:32px;">
+        <div>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;"><span style="width:28px;height:2px;background:#E8A33D;"></span><span style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#F2C04A;font-weight:800;">{{ t.network_eyebrow }}</span></div>
+          <h2 style="font-family:'Cairo',sans-serif;font-weight:800;font-size:clamp(28px,4.4vw,42px);color:#fff;margin:0;max-width:16ch;line-height:1.12;">{{ t.network_title }}</h2>
+        </div>
+        <p style="font-size:15px;color:#BFD2C5;line-height:1.6;max-width:42ch;margin:0;">{{ t.network_body }}</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;">
+        <sc-for list="{{ gallery }}" as="g" hint-placeholder-count="4">
+          <button onClick="{{ g.open }}" style="position:relative;border:0;padding:0;cursor:pointer;border-radius:16px;overflow:hidden;height:230px;display:block;background:#0A3325;" style-hover="transform:translateY(-3px);">
+            <div style="position:absolute;inset:0;background-size:cover;background-position:center;background-image:url('{{ g.img }}');opacity:.92;" style-hover="opacity:1;transform:scale(1.04);"></div>
+            <span style="position:absolute;inset-inline-start:14px;bottom:14px;color:#fff;font-weight:700;font-size:14px;text-shadow:0 2px 8px rgba(0,0,0,.6);text-align:start;">{{ g.label }}</span>
+            <span style="position:absolute;inset-inline-end:12px;top:12px;width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.18);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;backdrop-filter:blur(4px);">⤢</span>
+          </button>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== RESOURCES / MATERIALS ===== -->
+  <section id="resources" style="background:#EAF2EC;padding:88px 26px;">
+    <div style="max-width:1240px;margin:0 auto;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;"><span style="width:28px;height:2px;background:#E8A33D;"></span><span style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#137A4F;font-weight:800;">{{ t.resources_eyebrow }}</span></div>
+      <h2 style="font-family:'Cairo',sans-serif;font-weight:800;font-size:clamp(28px,4.4vw,42px);color:#0E5C3B;margin:0 0 30px;">{{ t.resources_title }}</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;">
+
+        <a href="House%20Cart%20Company%20Profile.dc.html" style="grid-column:span 1;display:block;border-radius:22px;overflow:hidden;background:#0E5C3B;color:#fff;text-decoration:none;animation:fadeup both;animation-timeline:view();animation-range:entry 4% cover 34%;" style-hover="transform:translateY(-4px);box-shadow:0 24px 50px rgba(14,92,59,.28);">
+          <div style="position:relative;height:210px;overflow:hidden;"><img src="assets/c153553c-0a54-4d9d-9735-1f0d26de97c2.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block;opacity:.9;"></div>
+          <div style="padding:26px 26px 28px;">
+            <div style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#F2C04A;font-weight:800;margin-bottom:8px;">{{ t.res_profile_kicker }}</div>
+            <div style="font-family:'Cairo',sans-serif;font-weight:800;font-size:24px;line-height:1.18;margin-bottom:10px;">{{ t.res_profile_title }}</div>
+            <div style="font-size:14px;color:#C7DDCD;line-height:1.55;margin-bottom:18px;">{{ t.res_profile_desc }}</div>
+            <span style="display:inline-flex;align-items:center;gap:8px;background:#E8A33D;color:#1C1B19;font-weight:800;font-size:14px;padding:12px 22px;border-radius:100px;">{{ t.res_view_profile }}</span>
+          </div>
+        </a>
+
+        <a href="House%20Cart%20Social%20Posts%20AR.dc.html" style="display:block;border-radius:22px;overflow:hidden;background:#fff;border:1px solid #DDE7DF;text-decoration:none;animation:fadeup both;animation-timeline:view();animation-range:entry 4% cover 34%;" style-hover="transform:translateY(-4px);box-shadow:0 20px 42px rgba(14,92,59,.14);">
+          <div style="height:170px;overflow:hidden;"><img src="assets/18bc0886-5c4c-46cd-b9b5-c8ec5bd0e59e.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+          <div style="padding:22px;">
+            <div style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#137A4F;font-weight:800;margin-bottom:6px;">{{ t.res_ar_kicker }}</div>
+            <div style="font-family:'Cairo',sans-serif;font-weight:800;font-size:19px;color:#0E5C3B;line-height:1.2;margin-bottom:6px;">{{ t.res_ar_title }}</div>
+            <div style="font-size:13px;color:#5A5A50;margin-bottom:14px;line-height:1.5;">{{ t.res_ar_desc }}</div>
+            <span style="font-weight:800;font-size:13.5px;color:#E8A33D;">{{ t.res_view }}</span>
+          </div>
+        </a>
+
+        <a href="House%20Cart%20Social%20Posts%20EN.dc.html" style="display:block;border-radius:22px;overflow:hidden;background:#fff;border:1px solid #DDE7DF;text-decoration:none;animation:fadeup both;animation-timeline:view();animation-range:entry 4% cover 34%;" style-hover="transform:translateY(-4px);box-shadow:0 20px 42px rgba(14,92,59,.14);">
+          <div style="height:170px;overflow:hidden;"><img src="assets/d4498300-6efd-407e-a3a4-c58ab3e8a585.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+          <div style="padding:22px;">
+            <div style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#137A4F;font-weight:800;margin-bottom:6px;">{{ t.res_en_kicker }}</div>
+            <div style="font-family:'Cairo',sans-serif;font-weight:800;font-size:19px;color:#0E5C3B;line-height:1.2;margin-bottom:6px;">{{ t.res_en_title }}</div>
+            <div style="font-size:13px;color:#5A5A50;margin-bottom:14px;line-height:1.5;">{{ t.res_en_desc }}</div>
+            <span style="font-weight:800;font-size:13.5px;color:#E8A33D;">{{ t.res_view }}</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" style="max-width:1240px;margin:0 auto;padding:90px 26px;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:48px;">
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;"><span style="width:28px;height:2px;background:#E8A33D;"></span><span style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#137A4F;font-weight:800;">{{ t.contact_eyebrow }}</span></div>
+        <h2 style="font-family:'Cairo',sans-serif;font-weight:800;font-size:clamp(28px,4.4vw,42px);color:#0E5C3B;margin:0 0 12px;">{{ t.contact_title }}</h2>
+        <p style="font-size:16px;color:#55645A;line-height:1.65;max-width:44ch;margin:0 0 30px;">{{ t.contact_sub }}</p>
+        <div style="display:flex;flex-direction:column;gap:12px;max-width:360px;">
+          <div style="display:flex;gap:14px;align-items:center;background:#EAF2EC;border-radius:14px;padding:15px 18px;"><span style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#137A4F;font-weight:800;width:64px;">{{ t.c_email }}</span><span style="font-weight:600;color:#16211B;">info@housecart-sa.com</span></div>
+          <div style="display:flex;gap:14px;align-items:center;background:#EAF2EC;border-radius:14px;padding:15px 18px;"><span style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#137A4F;font-weight:800;width:64px;">{{ t.c_web }}</span><span style="font-weight:600;color:#16211B;">housecart-sa.com</span></div>
+          <div style="display:flex;gap:14px;align-items:center;background:#EAF2EC;border-radius:14px;padding:15px 18px;"><span style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#137A4F;font-weight:800;width:64px;">{{ t.c_loc }}</span><span style="font-weight:600;color:#16211B;">{{ t.c_loc_val }}</span></div>
+        </div>
+      </div>
+
+      <div style="background:#fff;border:1px solid #E6E0D2;border-radius:24px;padding:32px;box-shadow:0 24px 50px rgba(14,92,59,.08);">
+        <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+          <div style="text-align:center;padding:30px 10px;animation:pop .4s ease both;">
+            <div style="width:64px;height:64px;border-radius:50%;background:#EAF2EC;color:#137A4F;display:flex;align-items:center;justify-content:center;font-size:30px;margin:0 auto 18px;">✓</div>
+            <div style="font-family:'Cairo',sans-serif;font-weight:800;font-size:24px;color:#0E5C3B;margin-bottom:8px;">{{ t.sent_title }}</div>
+            <p style="font-size:14.5px;color:#55645A;line-height:1.6;margin:0 0 22px;">{{ t.sent_body }}</p>
+            <button onClick="{{ reset }}" style="background:#0E5C3B;color:#fff;font-weight:700;font-size:14px;padding:12px 24px;border:0;border-radius:100px;cursor:pointer;font-family:inherit;" style-hover="background:#0b4b30;">{{ t.sent_again }}</button>
+          </div>
+        </sc-if>
+        <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+          <form onSubmit="{{ submit }}" novalidate>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+              <label style="display:block;">
+                <span style="font-size:12px;font-weight:700;color:#40493F;display:block;margin-bottom:6px;">{{ t.f_name }}</span>
+                <input name="name" type="text" style="{{ nameStyle }}" style-focus="border-color:#137A4F;box-shadow:0 0 0 3px rgba(19,122,79,.12);">
+                <sc-if value="{{ errName }}" hint-placeholder-val="{{ false }}"><span style="font-size:11px;color:#C0432E;font-weight:600;display:block;margin-top:5px;">{{ t.err_required }}</span></sc-if>
+              </label>
+              <label style="display:block;">
+                <span style="font-size:12px;font-weight:700;color:#40493F;display:block;margin-bottom:6px;">{{ t.f_company }}</span>
+                <input name="company" type="text" style="width:100%;border:1px solid #D8D1C0;border-radius:12px;padding:12px 14px;font-size:14px;font-family:inherit;color:#16211B;outline:none;" style-focus="border-color:#137A4F;box-shadow:0 0 0 3px rgba(19,122,79,.12);">
+              </label>
+            </div>
+            <label style="display:block;margin-top:14px;">
+              <span style="font-size:12px;font-weight:700;color:#40493F;display:block;margin-bottom:6px;">{{ t.f_email }}</span>
+              <input name="email" type="email" style="{{ emailStyle }}" style-focus="border-color:#137A4F;box-shadow:0 0 0 3px rgba(19,122,79,.12);">
+              <sc-if value="{{ errEmail }}" hint-placeholder-val="{{ false }}"><span style="font-size:11px;color:#C0432E;font-weight:600;display:block;margin-top:5px;">{{ t.err_email }}</span></sc-if>
+            </label>
+            <label style="display:block;margin-top:14px;">
+              <span style="font-size:12px;font-weight:700;color:#40493F;display:block;margin-bottom:6px;">{{ t.f_type }}</span>
+              <select name="type" style="width:100%;border:1px solid #D8D1C0;border-radius:12px;padding:12px 14px;font-size:14px;font-family:inherit;color:#16211B;outline:none;background:#fff;" style-focus="border-color:#137A4F;box-shadow:0 0 0 3px rgba(19,122,79,.12);">
+                <sc-for list="{{ types }}" as="ty" hint-placeholder-count="5"><option>{{ ty }}</option></sc-for>
+              </select>
+            </label>
+            <label style="display:block;margin-top:14px;">
+              <span style="font-size:12px;font-weight:700;color:#40493F;display:block;margin-bottom:6px;">{{ t.f_msg }}</span>
+              <textarea name="message" rows="4" style="width:100%;border:1px solid #D8D1C0;border-radius:12px;padding:12px 14px;font-size:14px;font-family:inherit;color:#16211B;outline:none;resize:vertical;" style-focus="border-color:#137A4F;box-shadow:0 0 0 3px rgba(19,122,79,.12);"></textarea>
+            </label>
+            <button type="submit" style="width:100%;margin-top:20px;background:#E8A33D;color:#1C1B19;font-weight:800;font-size:15px;padding:15px;border:0;border-radius:100px;cursor:pointer;font-family:inherit;" style-hover="background:#d8942f;">{{ t.f_send }}</button>
+          </form>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer style="background:#0A3325;color:#9FB8A8;padding:30px 26px;">
+    <div style="max-width:1240px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+      <div style="display:flex;align-items:center;gap:12px;"><span style="display:inline-flex;background:#fff;padding:5px;border-radius:10px;"><img src="assets/eb068b81-a16a-4c36-84a6-ffa4f8a99819.png" alt="" style="width:28px;height:28px;border-radius:6px;display:block;"></span><span style="font-family:'Cairo',sans-serif;font-weight:700;color:#fff;">HOUSE CART · عربة البيت</span></div>
+      <div style="font-size:12.5px;">{{ t.footer }}</div>
+    </div>
+  </footer>
+
+  <!-- ===== LIGHTBOX ===== -->
+  <sc-if value="{{ lightbox }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeLightbox }}" style="position:fixed;inset:0;z-index:200;background:rgba(9,30,20,.86);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:24px;animation:fadein .25s ease both;">
+      <div style="position:relative;max-width:860px;width:100%;background:#fff;border-radius:22px;overflow:hidden;animation:pop .3s cubic-bezier(.2,.7,.2,1) both;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));">
+        <img src="{{ lb.img }}" alt="" style="width:100%;height:100%;max-height:60vh;object-fit:cover;display:block;">
+        <div style="padding:34px 34px 36px;">
+          <div style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#137A4F;font-weight:800;margin-bottom:10px;">{{ lb.tag }}</div>
+          <div style="font-family:'Cairo',sans-serif;font-weight:800;font-size:26px;color:#0E5C3B;line-height:1.15;margin-bottom:10px;">{{ lb.name }}</div>
+          <p style="font-size:14.5px;color:#55645A;line-height:1.6;margin:0 0 22px;">{{ lb.desc }}</p>
+          <a href="#contact" onClick="{{ closeLightbox }}" style="display:inline-flex;align-items:center;gap:8px;background:#0E5C3B;color:#fff;font-weight:700;font-size:14px;padding:12px 22px;border-radius:100px;text-decoration:none;" style-hover="background:#0b4b30;">{{ t.lb_cta }}</a>
+        </div>
+      </div>
+      <button onClick="{{ closeLightbox }}" style="position:fixed;top:22px;inset-inline-end:24px;width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.14);color:#fff;font-size:22px;cursor:pointer;">✕</button>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1240,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = { lang:'en', cat:'all', q:'', tab:0, lightbox:null, sent:false, errName:false, errEmail:false };
+
+  componentDidMount(){
+    this._io = new IntersectionObserver((es)=>{
+      es.forEach(e=>{
+        if(!e.isIntersecting) return;
+        const el=e.target, to=+el.dataset.to, pre=el.dataset.prefix||'', start=performance.now(), dur=1500;
+        const tick=(now)=>{ const k=Math.min(1,(now-start)/dur); el.textContent=pre+Math.round((1-Math.pow(1-k,3))*to); if(k<1) requestAnimationFrame(tick); else el.textContent=pre+to; };
+        requestAnimationFrame(tick); this._io.unobserve(el);
+      });
+    },{threshold:.5});
+    document.querySelectorAll('[data-count]').forEach(el=>this._io.observe(el));
+    const nav=document.querySelector('[data-navlinks]');
+    this._mq=window.matchMedia('(min-width:860px)');
+    const applyNav=()=>{ if(nav) nav.style.display=this._mq.matches?'flex':'none'; };
+    applyNav(); this._mq.addEventListener('change',applyNav);
+    this._esc=(e)=>{ if(e.key==='Escape') this.setState({lightbox:null}); };
+    window.addEventListener('keydown',this._esc);
+  }
+  componentWillUnmount(){ this._io&&this._io.disconnect(); this._esc&&window.removeEventListener('keydown',this._esc); }
+
+  DATA(){
+    const CATS=[
+      {id:'dairy', img:'assets/a6db6de9-eca9-4ea8-a333-f86dede0c42f.jpg', en:'Cheese & Dairy', ar:'الأجبان والألبان'},
+      {id:'coffee', img:'assets/18f990a0-4068-4b94-8836-8521e254400b.jpg', en:'Coffee & Tea', ar:'القهوة والشاي'},
+      {id:'frozen', img:'assets/a0ae9b11-6788-4055-a46a-1714cda98bcd.jpg', en:'Frozen Foods', ar:'المجمدات'},
+      {id:'pantry', img:'assets/8d137789-7968-4a4d-a13f-2c5c04909641.jpg', en:'Oil & Pantry', ar:'الزيوت والمؤن'},
+      {id:'pet', img:'assets/2bf31703-1757-4bb7-bec9-06b275bc4491.jpg', en:'Pet Food', ar:'أغذية الحيوانات'},
+      {id:'fresh', img:'assets/41a70ff7-1120-437e-b8b9-9faf3c080fec.jpg', en:'Fresh & Produce', ar:'الطازجة'},
+      {id:'grocery', img:'assets/2c943620-f21e-4571-b475-0661457ce02b.jpg', en:'Grocery & Beverages', ar:'البقالة والمشروبات'},
+    ];
+    const P=[
+      {cat:'dairy', en:['Mozzarella & Pizza Cheese','Blocks, shredded & processed'], ar:['موزاريلا وجبن بيتزا','قوالب ومبشور ومطبوخ']},
+      {cat:'dairy', en:['Feta & White Cheese','Tins, tubs & pouches'], ar:['جبنة فيتا وبيضاء','علب وأوعية وأكياس']},
+      {cat:'dairy', en:['Butter, Ghee & Cream','Chilled & ambient'], ar:['زبدة وسمن وقشطة','مبرد وجاف']},
+      {cat:'coffee', en:['Arabica Coffee Beans','Whole bean & ground'], ar:['حبوب قهوة أرابيكا','حبوب كاملة ومطحونة']},
+      {cat:'coffee', en:['Black & Green Tea','Loose leaf & bags'], ar:['شاي أسود وأخضر','سائب وأكياس']},
+      {cat:'coffee', en:['Instant Coffee','Jars & sachets'], ar:['قهوة سريعة التحضير','برطمانات وأكياس']},
+      {cat:'frozen', en:['Frozen Vegetables','IQF & mixed packs'], ar:['خضار مجمدة','مفردة ومشكّلة']},
+      {cat:'frozen', en:['Frozen Pastry & Dough','Ready to bake'], ar:['معجنات وعجائن مجمدة','جاهزة للخبز']},
+      {cat:'frozen', en:['Ice Cream & Desserts','Tubs & singles'], ar:['آيس كريم وحلويات','عبوات وأفراد']},
+      {cat:'pantry', en:['Extra Virgin Olive Oil','Bottles & catering tins'], ar:['زيت زيتون بكر ممتاز','زجاجات وعبوات كبيرة']},
+      {cat:'pantry', en:['Canned & Preserved','Vegetables, fish & beans'], ar:['معلبات ومحفوظات','خضار وأسماك وبقول']},
+      {cat:'pantry', en:['Pasta, Rice & Grains','Retail & bulk'], ar:['معكرونة وأرز وحبوب','تجزئة وجملة']},
+      {cat:'pet', en:['Dog Food','Dry & wet formats'], ar:['طعام الكلاب','جاف ورطب']},
+      {cat:'pet', en:['Cat Food & Litter','Everyday essentials'], ar:['طعام ومستلزمات القطط','الأساسيات اليومية']},
+      {cat:'fresh', en:['Fresh Fruit','Seasonal & imported'], ar:['فواكه طازجة','موسمية ومستوردة']},
+      {cat:'fresh', en:['Vegetables & Herbs','Farm to shelf'], ar:['خضروات وأعشاب','من المزرعة إلى الرف']},
+      {cat:'grocery', en:['Juices & Water','Still, sparkling & juice'], ar:['عصائر ومياه','مياه ومشروبات وعصائر']},
+      {cat:'grocery', en:['Snacks & Confectionery','Sweet & savoury'], ar:['وجبات خفيفة وحلويات','حلو ومالح']},
+      {cat:'grocery', en:['Household & Personal Care','Non-food essentials'], ar:['منزلية والعناية الشخصية','أساسيات غير غذائية']},
+    ];
+    const CH=[
+      {id:'retail', img:'assets/735d9b19-ed0a-4690-b5e1-3dac01d0a360.jpg',
+        en:{name:'Retail & Hypermarkets', alt:'التجزئة والهايبر ماركت', desc:'Supermarkets and modern trade across the Kingdom — from national hypermarket chains to neighbourhood stores.', points:['Full-category listings & planograms','Reliable replenishment & merchandising','Nationwide modern-trade coverage']},
+        ar:{name:'التجزئة والهايبر ماركت', alt:'Retail & Hypermarkets', desc:'المتاجر الكبرى والتجارة الحديثة في جميع أنحاء المملكة — من سلاسل الهايبر ماركت إلى متاجر الأحياء.', points:['إدراج كامل للفئات وخطط الرفوف','إعادة تعبئة وتسويق موثوق','تغطية وطنية للتجارة الحديثة']}},
+      {id:'horeca', img:'assets/71a9899b-444b-4727-aa13-d00a1564df7a.jpg',
+        en:{name:'HORECA', alt:'الفنادق والمطاعم والمقاهي', desc:'Hotels, restaurants and cafés supplied with the quality and consistency their kitchens depend on.', points:['Chef-grade ingredients & bulk formats','Cold-chain-safe, on-time delivery','Dedicated foodservice account team']},
+        ar:{name:'الفنادق والمطاعم والمقاهي', alt:'HORECA', desc:'تزويد الفنادق والمطاعم والمقاهي بالجودة والثبات الذي تعتمد عليه مطابخها.', points:['مكونات بجودة الطهاة وعبوات كبيرة','توصيل يحافظ على سلسلة التبريد وفي الوقت','فريق حسابات مخصص لخدمات الطعام']}},
+      {id:'ecom', img:'assets/8ef4462a-8256-4126-83a7-8b8f7b5368c1.jpg',
+        en:{name:'E-Commerce', alt:'التجارة الإلكترونية', desc:'Marketplace fulfilment for Amazon, Noon and D2C brands — stock, pack and ship, fully handled.', points:['Marketplace-ready packaging & labeling','Fast fulfilment & returns handling','Real-time stock visibility']},
+        ar:{name:'التجارة الإلكترونية', alt:'E-Commerce', desc:'خدمات التخزين والشحن لأمازون ونون والعلامات المباشرة — تخزين وتغليف وشحن بالكامل.', points:['تغليف ووسم جاهز للأسواق الإلكترونية','تنفيذ سريع وإدارة المرتجعات','رؤية فورية للمخزون']}},
+    ];
+    const GAL=[
+      {img:'assets/b2f90314-360b-4457-a57b-c22c9735e169.jpg', en:'Racked storage', ar:'تخزين على الرفوف', den:'Pallet racking sized for high-turnover FMCG.', dar:'رفوف بالتات مصممة للمنتجات سريعة الدوران.'},
+      {img:'assets/d062110c-df59-4da7-b09b-e641aad6c77d.jpg', en:'Pick & pack', ar:'التجهيز والتغليف', den:'Order picking and consolidation under one roof.', dar:'تجهيز الطلبات وتجميعها تحت سقف واحد.'},
+      {img:'assets/8ddc5f37-b75a-4f06-a72b-9c70df540198.jpg', en:'Deep range', ar:'تشكيلة واسعة', den:'Over a thousand SKUs held and rotated.', dar:'أكثر من ألف صنف يُخزَّن ويُدار.'},
+      {img:'assets/3c00910e-ce0e-444a-a3d2-87dc265abb9f.jpg', en:'On the shelf', ar:'على الرف', den:'From our warehouse to the retail shelf.', dar:'من مستودعنا إلى رف التجزئة.'},
+    ];
+    return {CATS,P,CH,GAL};
+  }
+
+  T(){
+    const en={
+      nav_about:'About', nav_products:'Products', nav_channels:'Channels', nav_network:'Network', nav_cta:'Get in touch',
+      hero_badge:'Food & FMCG Distribution', hero_title:'Your trusted FMCG distribution partner in Saudi Arabia', hero_title_alt:'شريككم الموثوق لتوزيع المواد الغذائية',
+      hero_sub:"Connecting the world's leading food & consumer brands with Saudi businesses — from warehouse to marketplace. Importing quality, delivering trust.",
+      hero_cta1:'Explore products', hero_cta2:'Start an inquiry', scroll:'Scroll',
+      stat_products:'Products', stat_brands:'Brands', stat_clients:'Clients', stat_cities:'Cities',
+      about_eyebrow:'What we do', about_title:'End-to-end food distribution, under one roof',
+      about_body:'From sourcing trusted international brands to delivering them in perfect condition across the Kingdom — every step owned and accountable.',
+      about_chip_num:'4 steps', about_chip_label:'Import · Store · Distribute · Grow',
+      products_eyebrow:'Catalogue', products_title:'What we carry', search_ph:'Search products…', no_results:'No products match your search.',
+      channels_eyebrow:'Distribution channels', channels_title:'Where our products go',
+      network_eyebrow:'Network & warehousing', network_title:'Built for scale across the Kingdom',
+      network_body:'Ambient, chilled and frozen storage with a responsive fleet — quality kept intact from arrival to delivery.',
+      contact_eyebrow:'Get in touch', contact_title:"Let's work together", contact_sub:'Your complete FMCG distribution partner — from warehouse to marketplace. Tell us what you need.',
+      c_email:'Email', c_web:'Web', c_loc:'Location', c_loc_val:'Riyadh, Kingdom of Saudi Arabia',
+      f_name:'Full name', f_company:'Company', f_email:'Email', f_type:'I want to…', f_msg:'Message', f_send:'Send inquiry',
+      err_required:'This field is required', err_email:'Enter a valid email',
+      types:['Become a stockist','List my brand','HORECA / foodservice','E-commerce fulfilment','General enquiry'],
+      sent_title:'Thank you', sent_body:"We've received your inquiry and will get back to you shortly.", sent_again:'Send another',
+      nav_resources:'Materials',
+      resources_eyebrow:'Materials', resources_title:'Company profile & brand posts',
+      res_profile_kicker:'Company Profile · 12 pages', res_profile_title:'The full House Cart company profile', res_profile_desc:'About, business model, products, channels, warehousing, coverage & vision — bilingual and print-ready.', res_view_profile:'Open profile →',
+      res_ar_kicker:'Social · العربية', res_ar_title:'Arabic post carousel', res_ar_desc:'Sector-by-sector Instagram / Facebook set.',
+      res_en_kicker:'Social · English', res_en_title:'English post carousel', res_en_desc:'The same set, for English-first audiences.', res_view:'View posts →',
+      footer:'© 2026 House Cart · FMCG Distribution · Kingdom of Saudi Arabia', lb_cta:'Enquire about this →', all:'All',
+    };
+    const ar={
+      nav_about:'من نحن', nav_products:'المنتجات', nav_channels:'القنوات', nav_network:'الشبكة', nav_cta:'تواصل معنا',
+      hero_badge:'توزيع المواد الغذائية والاستهلاكية', hero_title:'شريككم الموثوق لتوزيع المواد الغذائية في السعودية', hero_title_alt:'Your trusted FMCG distribution partner',
+      hero_sub:'نربط أبرز العلامات الغذائية والاستهلاكية العالمية بالأعمال السعودية — من المستودع إلى السوق. نستورد الجودة، ونوصّل الثقة.',
+      hero_cta1:'استكشف المنتجات', hero_cta2:'ابدأ استفسارًا', scroll:'مرّر',
+      stat_products:'منتج', stat_brands:'علامة', stat_clients:'عميل', stat_cities:'مدينة',
+      about_eyebrow:'ماذا نقدم', about_title:'توزيع غذائي متكامل، تحت سقف واحد',
+      about_body:'من توريد العلامات الدولية الموثوقة إلى توصيلها بحالة مثالية في جميع أنحاء المملكة — كل خطوة تحت مسؤوليتنا.',
+      about_chip_num:'٤ خطوات', about_chip_label:'استيراد · تخزين · توزيع · نمو',
+      products_eyebrow:'الكتالوج', products_title:'ماذا نوزّع', search_ph:'ابحث عن منتج…', no_results:'لا توجد منتجات مطابقة لبحثك.',
+      channels_eyebrow:'قنوات التوزيع', channels_title:'إلى أين تصل منتجاتنا',
+      network_eyebrow:'الشبكة والتخزين', network_title:'مبنيّة للتوسّع في أنحاء المملكة',
+      network_body:'تخزين جاف ومبرد ومجمد مع أسطول سريع الاستجابة — نحافظ على الجودة من الاستلام حتى التسليم.',
+      contact_eyebrow:'تواصل معنا', contact_title:'لنعمل معًا', contact_sub:'شريككم المتكامل لتوزيع المواد الغذائية — من المستودع إلى السوق. أخبرنا بما تحتاجه.',
+      c_email:'البريد', c_web:'الموقع', c_loc:'الموقع', c_loc_val:'الرياض، المملكة العربية السعودية',
+      f_name:'الاسم الكامل', f_company:'الشركة', f_email:'البريد الإلكتروني', f_type:'أرغب في…', f_msg:'الرسالة', f_send:'إرسال الاستفسار',
+      err_required:'هذا الحقل مطلوب', err_email:'أدخل بريدًا صحيحًا',
+      types:['أن أصبح موزّعًا','إدراج علامتي','الفنادق والمطاعم','خدمات التجارة الإلكترونية','استفسار عام'],
+      sent_title:'شكرًا لك', sent_body:'لقد استلمنا استفسارك وسنعاود التواصل معك قريبًا.', sent_again:'إرسال آخر',
+      nav_resources:'المواد',
+      resources_eyebrow:'المواد', resources_title:'ملف الشركة ومنشورات العلامة',
+      res_profile_kicker:'ملف الشركة · ١٢ صفحة', res_profile_title:'ملف شركة House Cart الكامل', res_profile_desc:'من نحن، نموذج العمل، المنتجات، القنوات، التخزين، التغطية والرؤية — ثنائي اللغة وجاهز للطباعة.', res_view_profile:'فتح الملف →',
+      res_ar_kicker:'اجتماعي · العربية', res_ar_title:'كاروسيل منشورات عربية', res_ar_desc:'مجموعة إنستغرام / فيسبوك حسب القطاع.',
+      res_en_kicker:'اجتماعي · إنجليزي', res_en_title:'كاروسيل منشورات إنجليزية', res_en_desc:'نفس المجموعة للجمهور الإنجليزي.', res_view:'عرض المنشورات →',
+      footer:'© ٢٠٢٦ House Cart · توزيع المواد الغذائية · المملكة العربية السعودية', lb_cta:'استفسر عن هذا →', all:'الكل',
+    };
+    return this.state.lang==='ar'?ar:en;
+  }
+
+  submit=(e)=>{
+    e.preventDefault();
+    const f=e.target.elements;
+    const name=(f.name.value||'').trim();
+    const email=(f.email.value||'').trim();
+    const errName=!name;
+    const errEmail=!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email);
+    if(errName||errEmail){ this.setState({errName,errEmail}); return; }
+    this.setState({sent:true,errName:false,errEmail:false});
+  };
+  reset=()=>this.setState({sent:false});
+
+  renderVals(){
+    const {CATS,P,CH,GAL}=this.DATA();
+    const t=this.T();
+    const L=this.state.lang, isAr=L==='ar';
+    const catLabel=(id)=>{ const c=CATS.find(x=>x.id===id); return c?c[L]:''; };
+    const catImg=(id)=>{ const c=CATS.find(x=>x.id===id); return c?c.img:''; };
+
+    // chips
+    const counts={}; P.forEach(p=>counts[p.cat]=(counts[p.cat]||0)+1);
+    const chipBase='border:1px solid #D8D1C0;background:#fff;color:#40493F;font-weight:600;font-size:13px;padding:9px 15px;border-radius:100px;cursor:pointer;font-family:inherit;transition:all .18s;display:inline-flex;align-items:center;';
+    const chipActive='border:1px solid #0E5C3B;background:#0E5C3B;color:#fff;font-weight:700;font-size:13px;padding:9px 15px;border-radius:100px;cursor:pointer;font-family:inherit;transition:all .18s;display:inline-flex;align-items:center;';
+    const chips=[{id:'all',label:t.all,count:P.length}].concat(CATS.map(c=>({id:c.id,label:c[L],count:counts[c.id]||0})))
+      .map(c=>({label:c.label,count:c.count,style:this.state.cat===c.id?chipActive:chipBase,select:()=>this.setState({cat:c.id})}));
+
+    // products filtered
+    const q=this.state.q.trim().toLowerCase();
+    const filtered=P.filter(p=>{
+      if(this.state.cat!=='all' && p.cat!==this.state.cat) return false;
+      if(!q) return true;
+      const hay=(p.en.join(' ')+' '+p.ar.join(' ')+' '+catLabel(p.cat)).toLowerCase();
+      return hay.includes(q);
+    });
+    const products=filtered.map(p=>({
+      name:p[L][0], desc:p[L][1], img:catImg(p.cat), catLabel:catLabel(p.cat),
+      open:()=>this.setState({lightbox:{img:catImg(p.cat),name:p[L][0],desc:p[L][1],tag:catLabel(p.cat)}})
+    }));
+
+    // channel tabs
+    const tabBase='border:1px solid #D8D1C0;background:#fff;color:#40493F;font-weight:600;font-size:14px;padding:11px 20px;border-radius:100px;cursor:pointer;font-family:inherit;transition:all .18s;';
+    const tabActive='border:1px solid #137A4F;background:#EAF2EC;color:#0E5C3B;font-weight:800;font-size:14px;padding:11px 20px;border-radius:100px;cursor:pointer;font-family:inherit;transition:all .18s;';
+    const tabs=CH.map((c,i)=>({label:c[L].name,style:this.state.tab===i?tabActive:tabBase,select:()=>this.setState({tab:i})}));
+    const ac=CH[this.state.tab]||CH[0];
+    const active={img:ac.img,name:ac[L].name,alt:ac[L].alt,desc:ac[L].desc,points:ac[L].points};
+
+    // capabilities
+    const capsData=[
+      {n:'01', color:'#137A4F', en:['Import & Sourcing','Trusted international food & non-food brands, cleared and compliant.'], ar:['الاستيراد والتوريد','علامات دولية موثوقة، مخلّصة ومطابقة.']},
+      {n:'02', color:'#137A4F', en:['Warehousing','Ambient, chilled & frozen cold-chain storage.'], ar:['التخزين','تخزين جاف ومبرد ومجمد ضمن سلسلة التبريد.']},
+      {n:'03', color:'#137A4F', en:['Distribution','A responsive fleet delivering across KSA.'], ar:['التوزيع','أسطول سريع الاستجابة يغطي المملكة.']},
+      {n:'04', color:'#E8A33D', en:['Brand Support','Helping brands grow in the Saudi market.'], ar:['دعم العلامات','مساعدة العلامات على النمو في السوق السعودي.']},
+    ];
+    const caps=capsData.map(c=>({n:c.n,color:c.color,title:c[L][0],desc:c[L][1]}));
+
+    // gallery
+    const gallery=GAL.map(g=>({img:g.img,label:isAr?g.ar:g.en,open:()=>this.setState({lightbox:{img:g.img,name:isAr?g.ar:g.en,desc:isAr?g.dar:g.den,tag:t.network_eyebrow}})}));
+
+    // lang buttons
+    const langOn='border:0;background:#0E5C3B;color:#fff;font-weight:800;font-size:13px;padding:8px 14px;cursor:pointer;font-family:inherit;';
+    const langOff='border:0;background:transparent;color:#40493F;font-weight:700;font-size:13px;padding:8px 14px;cursor:pointer;font-family:inherit;';
+
+    // form field styles (error state)
+    const inputBase='width:100%;border:1px solid #D8D1C0;border-radius:12px;padding:12px 14px;font-size:14px;font-family:inherit;color:#16211B;outline:none;';
+    const inputErr='width:100%;border:1px solid #C0432E;border-radius:12px;padding:12px 14px;font-size:14px;font-family:inherit;color:#16211B;outline:none;background:#FDF3F1;';
+    const lb=this.state.lightbox||{};
+
+    return {
+      t, dir:isAr?'rtl':'ltr', isAr,
+      setEn:()=>this.setState({lang:'en'}), setAr:()=>this.setState({lang:'ar'}),
+      enBtn:L==='en'?langOn:langOff, arBtn:L==='ar'?langOn:langOff,
+      chips, products, noResults:products.length===0,
+      onSearch:(e)=>this.setState({q:e.target.value}),
+      tabs, active, caps, gallery,
+      lightbox:!!this.state.lightbox, lb, closeLightbox:()=>this.setState({lightbox:null}),
+      types:t.types,
+      submit:this.submit, reset:this.reset, sent:this.state.sent, notSent:!this.state.sent,
+      errName:this.state.errName, errEmail:this.state.errEmail,
+      nameStyle:this.state.errName?inputErr:inputBase, emailStyle:this.state.errEmail?inputErr:inputBase,
+    };
+  }
+}
+</script>
+</body>
+</html>

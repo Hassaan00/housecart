@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="image-slot.js"></script>
+<style>
+  body { margin: 0; background: #DCD9CE; }
+  .doc { box-sizing: border-box; max-width: 8.5in; margin: 0 auto; background: #FFFFFF;
+         color: #1C1B19; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13.5px; line-height: 1.6; }
+  .pad { padding: 50px clamp(22px, 5vw, 0.78in); position: relative; }
+  .doc-frame { width: 100%; border-collapse: collapse; }
+  .doc-frame td { padding: 0; }
+  .ar { font-family: 'Cairo', sans-serif; direction: rtl; }
+  h1, h2, h3 { text-wrap: balance; margin: 0; font-family: 'Cairo', sans-serif; }
+  p, li { text-wrap: pretty; }
+  .doc p { margin: 0 0 10px; }
+  .running-hdr, .running-ftr, .hdr-space, .ftr-space { display: none; }
+  @page { size: letter; margin: 0; }
+  @media print {
+    html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    html, body { margin: 0; padding: 0; background: #fff; }
+    .doc { max-width: none !important; margin: 0 !important; box-shadow: none !important; border: none !important; }
+    #dc-root, .sc-host { height: auto !important; }
+    .hdr-space, .ftr-space { display: table-cell; height: 0.5in !important; }
+    .running-hdr, .running-ftr { display: flex !important; justify-content: space-between;
+           align-items: center; position: fixed !important; left: 0; right: 0; margin: 0 !important;
+           font-size: 8.5px; letter-spacing: 0.14em; text-transform: uppercase; color: #9C9A8E;
+           font-family: 'Plus Jakarta Sans', sans-serif; }
+    .running-hdr { top: 0; padding: 0.22in 0.78in 0 !important; }
+    .running-ftr { bottom: 0; padding: 0 0.78in 0.22in !important; }
+    .page-break { break-after: page; }
+    h1, h2, h3, h4, h5, h6 { break-after: avoid; }
+    .keep { break-inside: avoid; }
+    p, li { orphans: 3; widows: 3; }
+  }
+</style>
+</helmet>
+
+<main class="doc">
+  <table class="doc-frame" role="presentation">
+    <thead><tr><td class="hdr-space"></td></tr></thead>
+    <tbody><tr><td>
+
+      <div class="running-hdr"><span>House&nbsp;Cart — Company Profile</span><span>عربة البيت · FMCG</span></div>
+      <div class="running-ftr"><span>housecart-sa.com</span><span>Importing Quality · Delivering Trust</span></div>
+
+      <!-- ============ 1 · COVER ============ -->
+      <div class="page-break" style="position:relative;min-height:9.2in;background:#0E5C3B;overflow:hidden;">
+        <image-slot id="pf-cover" shape="rect" src="assets/3c00910e-ce0e-444a-a3d2-87dc265abb9f.jpg" placeholder="Drop cover image — fresh food / grocery / warehouse" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,92,59,0.74) 0%,rgba(14,92,59,0.32) 40%,rgba(11,60,40,0.80) 74%,rgba(9,48,32,0.97) 100%);pointer-events:none;"></div>
+        <div style="position:absolute;inset:0;padding:58px clamp(22px,5vw,0.78in);display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;pointer-events:none;">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+            <span style="display:inline-flex;background:#fff;padding:10px;border-radius:16px;box-shadow:0 6px 24px rgba(0,0,0,0.25);"><img src="assets/eb068b81-a16a-4c36-84a6-ffa4f8a99819.png" style="width:82px;height:82px;border-radius:10px;display:block;"></span>
+            <div style="text-align:right;"><div style="font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:#F2C04A;font-weight:700;">Company Profile</div><div class="ar" style="font-size:15px;color:#E7EFE7;margin-top:3px;">ملف الشركة · ٢٠٢٦</div></div>
+          </div>
+          <div>
+            <div style="display:inline-flex;align-items:center;gap:10px;background:#E8A33D;color:#1C1B19;padding:9px 18px;border-radius:100px;font-weight:800;font-size:13px;letter-spacing:0.02em;margin-bottom:22px;">Food &amp; FMCG Distribution <span class="ar" style="font-weight:700;">توزيع المواد الغذائية</span></div>
+            <h1 style="font-weight:800;font-size:62px;line-height:1.0;color:#fff;letter-spacing:-0.02em;margin:0 0 10px;max-width:16ch;">Your Trusted FMCG Distribution Partner</h1>
+            <div class="ar" style="font-weight:700;font-size:34px;color:#F2C04A;line-height:1.2;margin-bottom:18px;">شريككم الموثوق لتوزيع المواد الغذائية في السعودية</div>
+            <p style="font-size:18px;color:#E2EBE2;max-width:48ch;line-height:1.5;margin:0;">Connecting the world's leading food &amp; consumer brands with Saudi businesses — from warehouse to marketplace.</p>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:flex-end;border-top:1px solid rgba(255,255,255,0.2);padding-top:18px;">
+            <div style="font-size:13px;color:#BFD2C5;">House Cart · عربة البيت · Kingdom of Saudi Arabia</div>
+            <div style="font-weight:700;font-size:15px;color:#F2C04A;">housecart-sa.com</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ 2 · CEO MESSAGE ============ -->
+      <div class="pad page-break" style="background:#fff;">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px;"><span style="width:26px;height:3px;background:#E8A33D;"></span><span style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#137A4F;font-weight:800;">Message from the Chairman</span><span class="ar" style="font-size:14px;color:#9C9A8E;font-weight:600;">كلمة رئيس المجلس</span></div>
+        <div style="display:grid;grid-template-columns:0.82fr 1.18fr;gap:32px;align-items:start;">
+          <div>
+            <image-slot id="pf-ceo" shape="rounded" radius="16" placeholder="Drop Chairman / CEO photo" style="width:100%;height:350px;"></image-slot>
+            <div style="margin-top:14px;border-left:3px solid #E8A33D;padding-left:14px;">
+              <div style="font-family:'Cairo',sans-serif;font-weight:700;font-size:19px;color:#0E5C3B;">[ Chairman Name ]</div>
+              <div style="font-size:12.5px;color:#6A6A63;">Chairman &amp; Founder · House Cart</div>
+            </div>
+          </div>
+          <div>
+            <h2 style="font-weight:800;font-size:30px;line-height:1.22;color:#0E5C3B;margin:0 0 16px;">“We built House Cart to give Saudi businesses a food supply partner they can truly rely on.”</h2>
+            <p style="font-size:14.5px;color:#3A3A33;">Saudi Arabia's food market is growing faster, and demanding more, than ever before. Retailers, hypermarkets, hotels, and restaurants need a distributor who understands quality, timing, and trust in equal measure.</p>
+            <p style="font-size:14.5px;color:#3A3A33;">We connect established international brands with the businesses that feed the Kingdom every day — with dependable supply, protected quality, fair pricing, and service that treats every partner as a long-term relationship.</p>
+            <p class="ar" style="font-size:15px;color:#3A3A33;background:#EDF4EE;border-radius:12px;padding:16px 18px;margin:16px 0 0;">نلتزم بتوفير إمداد موثوق وجودة محمية وخدمة تبني علاقات طويلة الأمد مع شركائنا في جميع أنحاء المملكة.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ 3 · ABOUT ============ -->
+      <div class="pad page-break" style="background:#EDF4EE;">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;"><span style="width:26px;height:3px;background:#E8A33D;"></span><span style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#137A4F;font-weight:800;">About House Cart</span><span class="ar" style="font-size:14px;color:#6A8A76;font-weight:600;">من نحن</span></div>
+        <div style="display:grid;grid-template-columns:1.3fr 0.7fr;gap:28px;align-items:end;margin-bottom:24px;">
+          <h2 style="font-weight:800;font-size:38px;line-height:1.1;color:#0E5C3B;margin:0;">A complete food distribution capability, end to end.</h2>
+          <p style="font-size:13.5px;color:#3A3A33;margin:0;">House Cart is a Saudi-based importer and distributor of food &amp; non-food FMCG products — managing the full journey from global sourcing to the shelf, the kitchen, and the cart.</p>
+        </div>
+        <div class="keep" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
+          <div style="background:#fff;border-radius:14px;padding:20px;"><div style="font-family:'Cairo',sans-serif;font-weight:800;font-size:26px;color:#137A4F;line-height:1;">01</div><div style="font-weight:700;font-size:15px;margin:8px 0 2px;">Import</div><div class="ar" style="font-size:13px;color:#137A4F;font-weight:600;">الاستيراد</div><div style="font-size:12px;color:#6A6A63;margin-top:4px;">Trusted international brands.</div></div>
+          <div style="background:#fff;border-radius:14px;padding:20px;"><div style="font-family:'Cairo',sans-serif;font-weight:800;font-size:26px;color:#137A4F;line-height:1;">02</div><div style="font-weight:700;font-size:15px;margin:8px 0 2px;">Warehouse</div><div class="ar" style="font-size:13px;color:#137A4F;font-weight:600;">التخزين</div><div style="font-size:12px;color:#6A6A63;margin-top:4px;">Ambient, chilled &amp; frozen.</div></div>
+          <div style="background:#fff;border-radius:14px;padding:20px;"><div style="font-family:'Cairo',sans-serif;font-weight:800;font-size:26px;color:#137A4F;line-height:1;">03</div><div style="font-weight:700;font-size:15px;margin:8px 0 2px;">Distribution</div><div class="ar" style="font-size:13px;color:#137A4F;font-weight:600;">التوزيع</div><div style="font-size:12px;color:#6A6A63;margin-top:4px;">A responsive delivery network.</div></div>
+          <div style="background:#fff;border-radius:14px;padding:20px;"><div style="font-family:'Cairo',sans-serif;font-weight:800;font-size:26px;color:#E8A33D;line-height:1;">04</div><div style="font-weight:700;font-size:15px;margin:8px 0 2px;">Retail</div><div class="ar" style="font-size:13px;color:#C5872A;font-weight:600;">التجزئة</div><div style="font-size:12px;color:#6A6A63;margin-top:4px;">Supermarkets &amp; hypermarkets.</div></div>
+          <div style="background:#fff;border-radius:14px;padding:20px;"><div style="font-family:'Cairo',sans-serif;font-weight:800;font-size:26px;color:#E8A33D;line-height:1;">05</div><div style="font-weight:700;font-size:15px;margin:8px 0 2px;">HORECA</div><div class="ar" style="font-size:13px;color:#C5872A;font-weight:600;">الفنادق والمطاعم</div><div style="font-size:12px;color:#6A6A63;margin-top:4px;">Hotels, restaurants &amp; cafés.</div></div>
+          <div style="background:#fff;border-radius:14px;padding:20px;"><div style="font-family:'Cairo',sans-serif;font-weight:800;font-size:26px;color:#E8A33D;line-height:1;">06</div><div style="font-weight:700;font-size:15px;margin:8px 0 2px;">E-Commerce</div><div class="ar" style="font-size:13px;color:#C5872A;font-weight:600;">التجارة الإلكترونية</div><div style="font-size:12px;color:#6A6A63;margin-top:4px;">Amazon, Noon &amp; marketplaces.</div></div>
+        </div>
+      </div>
+
+      <!-- ============ 4 · BUSINESS MODEL ============ -->
+      <div class="pad page-break" style="background:#fff;">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;"><span style="width:26px;height:3px;background:#E8A33D;"></span><span style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#137A4F;font-weight:800;">Our Business Model</span><span class="ar" style="font-size:14px;color:#9C9A8E;font-weight:600;">نموذج العمل</span></div>
+        <h2 style="font-weight:800;font-size:38px;line-height:1.1;color:#0E5C3B;margin:0 0 24px;">From global brands to Saudi shelves</h2>
+        <div class="keep" style="display:flex;flex-direction:column;gap:12px;">
+          <div style="background:#0E5C3B;color:#fff;border-radius:14px;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;">
+            <div><div style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#9FD7B8;font-weight:700;">Step 1 · المصدر</div><div style="font-family:'Cairo',sans-serif;font-weight:700;font-size:22px;">International Brands</div></div>
+            <div style="font-size:12.5px;color:#C7DDCD;max-width:34ch;text-align:right;">Curated food &amp; non-food manufacturers worldwide.</div>
+          </div>
+          <div style="text-align:center;color:#E8A33D;font-size:22px;line-height:0.5;">↓</div>
+          <div style="background:#E8A33D;color:#1C1B19;border-radius:14px;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;">
+            <div><div style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#7A5A18;font-weight:800;">Step 2 · المستودع</div><div style="font-family:'Cairo',sans-serif;font-weight:700;font-size:22px;">House Cart Warehouse</div></div>
+            <div style="font-size:12.5px;color:#5C4413;max-width:34ch;text-align:right;font-weight:600;">Import clearance, quality control &amp; cold-chain storage.</div>
+          </div>
+          <div style="text-align:center;color:#E8A33D;font-size:22px;line-height:0.5;">↓</div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
+            <div style="background:#EDF4EE;border-radius:14px;padding:18px;border-bottom:4px solid #137A4F;"><div style="font-weight:700;font-size:14.5px;color:#0E5C3B;">Retail &amp; Hypermarkets</div><div class="ar" style="font-size:12.5px;color:#137A4F;font-weight:600;">التجزئة</div></div>
+            <div style="background:#EDF4EE;border-radius:14px;padding:18px;border-bottom:4px solid #137A4F;"><div style="font-weight:700;font-size:14.5px;color:#0E5C3B;">HORECA</div><div class="ar" style="font-size:12.5px;color:#137A4F;font-weight:600;">الفنادق والمطاعم</div></div>
+            <div style="background:#EDF4EE;border-radius:14px;padding:18px;border-bottom:4px solid #137A4F;"><div style="font-weight:700;font-size:14.5px;color:#0E5C3B;">E-Commerce</div><div class="ar" style="font-size:12.5px;color:#137A4F;font-weight:600;">المتاجر الإلكترونية</div></div>
+          </div>
+        </div>
+        <p style="margin-top:20px;color:#6A6A63;font-size:13px;max-width:70ch;">One accountable partner across the entire chain — fewer handoffs, protected quality, and a single relationship from the factory floor to the final customer.</p>
+      </div>
+
+      <!-- ============ 5 · WHY CHOOSE ============ -->
+      <div class="pad page-break" style="background:#0E5C3B;color:#fff;">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;"><span style="width:26px;height:3px;background:#E8A33D;"></span><span style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#F2C04A;font-weight:800;">Why Choose House Cart</span><span class="ar" style="font-size:14px;color:#9FD7B8;font-weight:600;">لماذا عربة البيت</span></div>
+        <h2 style="font-weight:800;font-size:38px;line-height:1.1;color:#fff;margin:0 0 24px;">Built for reliability, priced for partnership</h2>
+        <div class="keep" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <div style="background:#14704A;border-radius:14px;padding:20px;display:flex;gap:16px;"><div style="font-family:'Cairo',sans-serif;font-weight:800;font-size:24px;color:#F2C04A;line-height:1;">01</div><div><div style="font-weight:700;font-size:15.5px;">Reliable Supply Chain</div><div class="ar" style="font-size:13px;color:#BFE0CC;">سلسلة إمداد موثوقة</div></div></div>
+          <div style="background:#14704A;border-radius:14px;padding:20px;display:flex;gap:16px;"><div style="font-family:'Cairo',sans-serif;font-weight:800;font-size:24px;color:#F2C04A;line-height:1;">02</div><div><div style="font-weight:700;font-size:15.5px;">Competitive Pricing</div><div class="ar" style="font-size:13px;color:#BFE0CC;">أسعار تنافسية</div></div></div>
+          <div style="background:#14704A;border-radius:14px;padding:20px;display:flex;gap:16px;"><div style="font-family:'Cairo',sans-serif;font-weight:800;font-size:24px;color:#F2C04A;line-height:1;">03</div><div><div style="font-weight:700;font-size:15.5px;">Quality Assurance</div><div class="ar" style="font-size:13px;color:#BFE0CC;">ضمان الجودة</div></div></div>
+          <div style="background:#14704A;border-radius:14px;padding:20px;display:flex;gap:16px;"><div style="font-family:'Cairo',sans-serif;font-weight:800;font-size:24px;color:#F2C04A;line-height:1;">04</div><div><div style="font-weight:700;font-size:15.5px;">Wide Product Portfolio</div><div class="ar" style="font-size:13px;color:#BFE0CC;">تشكيلة منتجات واسعة</div></div></div>
+          <div style="background:#14704A;border-radius:14px;padding:20px;display:flex;gap:16px;"><div style="font-family:'Cairo',sans-serif;font-weight:800;font-size:24px;color:#F2C04A;line-height:1;">05</div><div><div style="font-weight:700;font-size:15.5px;">Fast Delivery</div><div class="ar" style="font-size:13px;color:#BFE0CC;">توصيل سريع</div></div></div>
+          <div style="background:#14704A;border-radius:14px;padding:20px;display:flex;gap:16px;"><div style="font-family:'Cairo',sans-serif;font-weight:800;font-size:24px;color:#F2C04A;line-height:1;">06</div><div><div style="font-weight:700;font-size:15.5px;">Dedicated Support</div><div class="ar" style="font-size:13px;color:#BFE0CC;">دعم مخصص</div></div></div>
+        </div>
+      </div>
+
+      <!-- ============ 6 · PRODUCT CATEGORIES ============ -->
+      <div class="pad page-break" style="background:#fff;">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;"><span style="width:26px;height:3px;background:#E8A33D;"></span><span style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#137A4F;font-weight:800;">Product Categories</span><span class="ar" style="font-size:14px;color:#9C9A8E;font-weight:600;">فئات المنتجات</span></div>
+        <h2 style="font-weight:800;font-size:38px;line-height:1.1;color:#0E5C3B;margin:0 0 4px;">What we carry</h2>
+        <p style="color:#6A6A63;font-size:13px;margin-bottom:20px;">A broad, growing portfolio across food and household essentials. <span class="ar" style="color:#137A4F;">تشكيلة واسعة من المنتجات الغذائية والمنزلية.</span></p>
+        <div class="keep" style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:14px;">
+          <div style="border-radius:14px;overflow:hidden;background:#F7F4EC;"><image-slot id="pf-p-cheese" shape="rect" src="assets/a6db6de9-eca9-4ea8-a333-f86dede0c42f.jpg" placeholder="cheese / dairy" style="width:100%;height:108px;"></image-slot><div style="padding:11px 13px;"><div style="font-weight:700;font-size:13px;">Cheese &amp; Dairy</div><div class="ar" style="font-size:12px;color:#137A4F;font-weight:600;">الأجبان والألبان</div></div></div>
+          <div style="border-radius:14px;overflow:hidden;background:#F7F4EC;"><image-slot id="pf-p-butter" shape="rect" placeholder="butter / cream" style="width:100%;height:108px;"></image-slot><div style="padding:11px 13px;"><div style="font-weight:700;font-size:13px;">Butter &amp; Cream</div><div class="ar" style="font-size:12px;color:#137A4F;font-weight:600;">الزبدة والقشطة</div></div></div>
+          <div style="border-radius:14px;overflow:hidden;background:#F7F4EC;"><image-slot id="pf-p-coffee" shape="rect" src="assets/18f990a0-4068-4b94-8836-8521e254400b.jpg" placeholder="coffee / tea" style="width:100%;height:108px;"></image-slot><div style="padding:11px 13px;"><div style="font-weight:700;font-size:13px;">Coffee &amp; Tea</div><div class="ar" style="font-size:12px;color:#137A4F;font-weight:600;">القهوة والشاي</div></div></div>
+          <div style="border-radius:14px;overflow:hidden;background:#F7F4EC;"><image-slot id="pf-p-oil" shape="rect" src="assets/8d137789-7968-4a4d-a13f-2c5c04909641.jpg" placeholder="olive oil / pantry" style="width:100%;height:108px;"></image-slot><div style="padding:11px 13px;"><div style="font-weight:700;font-size:13px;">Olive Oil &amp; Pantry</div><div class="ar" style="font-size:12px;color:#137A4F;font-weight:600;">الزيوت والمؤن</div></div></div>
+          <div style="border-radius:14px;overflow:hidden;background:#F7F4EC;"><image-slot id="pf-p-frozen" shape="rect" src="assets/a0ae9b11-6788-4055-a46a-1714cda98bcd.jpg" placeholder="frozen" style="width:100%;height:108px;"></image-slot><div style="padding:11px 13px;"><div style="font-weight:700;font-size:13px;">Frozen Foods</div><div class="ar" style="font-size:12px;color:#137A4F;font-weight:600;">المجمدات</div></div></div>
+          <div style="border-radius:14px;overflow:hidden;background:#F7F4EC;"><image-slot id="pf-p-bev" shape="rect" placeholder="beverages" style="width:100%;height:108px;"></image-slot><div style="padding:11px 13px;"><div style="font-weight:700;font-size:13px;">Beverages</div><div class="ar" style="font-size:12px;color:#137A4F;font-weight:600;">المشروبات</div></div></div>
+          <div style="border-radius:14px;overflow:hidden;background:#F7F4EC;"><image-slot id="pf-p-pet" shape="rect" src="assets/2bf31703-1757-4bb7-bec9-06b275bc4491.jpg" placeholder="pet food" style="width:100%;height:108px;"></image-slot><div style="padding:11px 13px;"><div style="font-weight:700;font-size:13px;">Pet Food</div><div class="ar" style="font-size:12px;color:#137A4F;font-weight:600;">أغذية الحيوانات</div></div></div>
+          <div style="border-radius:14px;overflow:hidden;background:#F7F4EC;"><image-slot id="pf-p-clean" shape="rect" placeholder="cleaning / laundry" style="width:100%;height:108px;"></image-slot><div style="padding:11px 13px;"><div style="font-weight:700;font-size:13px;">Cleaning &amp; Non-Food</div><div class="ar" style="font-size:12px;color:#137A4F;font-weight:600;">التنظيف وغير الغذائية</div></div></div>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <span style="background:#137A4F;color:#fff;font-weight:700;font-size:12px;padding:7px 16px;border-radius:100px;">Food Products · منتجات غذائية</span>
+          <span style="background:#F7F4EC;color:#1C1B19;font-weight:600;font-size:12px;padding:7px 16px;border-radius:100px;border:1px solid #E4E0D4;">Non-Food · غير غذائية</span>
+        </div>
+      </div>
+
+      <!-- ============ 7 · DISTRIBUTION CHANNELS ============ -->
+      <div class="pad page-break" style="background:#EDF4EE;">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;"><span style="width:26px;height:3px;background:#E8A33D;"></span><span style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#137A4F;font-weight:800;">Distribution Channels</span><span class="ar" style="font-size:14px;color:#6A8A76;font-weight:600;">قنوات التوزيع</span></div>
+        <h2 style="font-weight:800;font-size:38px;line-height:1.1;color:#0E5C3B;margin:0 0 22px;">Where our products go</h2>
+        <div class="keep" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px;">
+          <div style="border-radius:16px;overflow:hidden;background:#fff;"><image-slot id="pf-ch-retail" shape="rect" src="assets/735d9b19-ed0a-4690-b5e1-3dac01d0a360.jpg" placeholder="retail / hypermarket" style="width:100%;height:130px;"></image-slot><div style="padding:16px 18px;"><div style="font-family:'Cairo',sans-serif;font-weight:700;font-size:18px;color:#0E5C3B;">Retail &amp; Hypermarkets</div><div class="ar" style="font-size:13px;color:#E8A33D;font-weight:700;margin-bottom:5px;">التجزئة والهايبر ماركت</div><div style="font-size:12.5px;color:#6A6A63;line-height:1.5;">Supermarkets &amp; modern trade across KSA.</div></div></div>
+          <div style="border-radius:16px;overflow:hidden;background:#fff;"><image-slot id="pf-ch-horeca" shape="rect" placeholder="hotel / restaurant" style="width:100%;height:130px;"></image-slot><div style="padding:16px 18px;"><div style="font-family:'Cairo',sans-serif;font-weight:700;font-size:18px;color:#0E5C3B;">HORECA</div><div class="ar" style="font-size:13px;color:#E8A33D;font-weight:700;margin-bottom:5px;">الفنادق والمطاعم والمقاهي</div><div style="font-size:12.5px;color:#6A6A63;line-height:1.5;">Hotels, restaurants &amp; cafés.</div></div></div>
+          <div style="border-radius:16px;overflow:hidden;background:#fff;"><image-slot id="pf-ch-ecom" shape="rect" src="assets/8ef4462a-8256-4126-83a7-8b8f7b5368c1.jpg" placeholder="e-commerce / packed order" style="width:100%;height:130px;"></image-slot><div style="padding:16px 18px;"><div style="font-family:'Cairo',sans-serif;font-weight:700;font-size:18px;color:#0E5C3B;">E-Commerce</div><div class="ar" style="font-size:13px;color:#E8A33D;font-weight:700;margin-bottom:5px;">التجارة الإلكترونية</div><div style="font-size:12.5px;color:#6A6A63;line-height:1.5;">Amazon, Noon &amp; online platforms.</div></div></div>
+        </div>
+        <div class="keep" style="background:#fff;border-radius:16px;padding:20px 22px;">
+          <div style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#6A6A63;font-weight:700;margin-bottom:14px;">Trusted partners &amp; brands · شركاؤنا</div>
+          <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px;">
+            <image-slot id="pf-logo1" shape="rounded" radius="8" placeholder="logo" style="width:100%;height:54px;"></image-slot>
+            <image-slot id="pf-logo2" shape="rounded" radius="8" placeholder="logo" style="width:100%;height:54px;"></image-slot>
+            <image-slot id="pf-logo3" shape="rounded" radius="8" placeholder="logo" style="width:100%;height:54px;"></image-slot>
+            <image-slot id="pf-logo4" shape="rounded" radius="8" placeholder="logo" style="width:100%;height:54px;"></image-slot>
+            <image-slot id="pf-logo5" shape="rounded" radius="8" placeholder="logo" style="width:100%;height:54px;"></image-slot>
+          </div>
+          <div style="font-size:11px;color:#9C9A8E;margin-top:10px;">Drop partner / brand logos you are authorised to display.</div>
+        </div>
+      </div>
+
+      <!-- ============ 8 · WAREHOUSING ============ -->
+      <div class="page-break" style="position:relative;background:#0E5C3B;color:#fff;">
+        <div style="position:relative;height:300px;overflow:hidden;">
+          <image-slot id="pf-wh" shape="rect" src="assets/d062110c-df59-4da7-b09b-e641aad6c77d.jpg" placeholder="Drop a wide photo — warehouse / cold store / fleet" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,92,59,0.30),rgba(11,60,40,0.9));pointer-events:none;"></div>
+          <div style="position:absolute;left:0;bottom:0;padding:0 clamp(22px,5vw,0.78in) 24px;pointer-events:none;">
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;"><span style="width:26px;height:3px;background:#E8A33D;"></span><span style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#F2C04A;font-weight:800;">Warehousing &amp; Logistics</span><span class="ar" style="font-size:13px;color:#BFE0CC;font-weight:600;">التخزين والخدمات اللوجستية</span></div>
+            <h2 style="font-weight:800;font-size:36px;color:#fff;margin:0;text-shadow:0 2px 16px rgba(0,0,0,0.4);">Stored right. Delivered fast.</h2>
+          </div>
+        </div>
+        <div class="pad" style="padding-top:28px;">
+          <div class="keep" style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;">
+            <div style="background:#14704A;border-radius:14px;padding:18px;"><div style="font-weight:700;font-size:14.5px;color:#fff;">Ambient</div><div class="ar" style="font-size:12px;color:#BFE0CC;">تخزين عادي</div></div>
+            <div style="background:#14704A;border-radius:14px;padding:18px;"><div style="font-weight:700;font-size:14.5px;color:#fff;">Chilled</div><div class="ar" style="font-size:12px;color:#BFE0CC;">تخزين مبرّد</div></div>
+            <div style="background:#14704A;border-radius:14px;padding:18px;"><div style="font-weight:700;font-size:14.5px;color:#fff;">Frozen</div><div class="ar" style="font-size:12px;color:#BFE0CC;">تخزين مجمّد</div></div>
+            <div style="background:#14704A;border-radius:14px;padding:18px;border-bottom:4px solid #E8A33D;"><div style="font-weight:700;font-size:14.5px;color:#fff;">Fleet &amp; Delivery</div><div class="ar" style="font-size:12px;color:#BFE0CC;">أسطول التوصيل</div></div>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;">
+            <span style="border:1px solid #2C7A55;color:#D8EADF;font-size:11.5px;padding:7px 14px;border-radius:100px;">FIFO inventory management</span>
+            <span style="border:1px solid #2C7A55;color:#D8EADF;font-size:11.5px;padding:7px 14px;border-radius:100px;">Full traceability</span>
+            <span style="border:1px solid #2C7A55;color:#D8EADF;font-size:11.5px;padding:7px 14px;border-radius:100px;">SFDA · ISO 22000 · HACCP aligned</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ 9 · MARKET COVERAGE ============ -->
+      <div class="pad page-break" style="background:#fff;">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;"><span style="width:26px;height:3px;background:#E8A33D;"></span><span style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#137A4F;font-weight:800;">Market Coverage</span><span class="ar" style="font-size:14px;color:#9C9A8E;font-weight:600;">التغطية الجغرافية</span></div>
+        <h2 style="font-weight:800;font-size:38px;line-height:1.1;color:#0E5C3B;margin:0 0 22px;">Serving the Kingdom, city by city</h2>
+        <div style="display:grid;grid-template-columns:1.1fr 0.9fr;gap:26px;align-items:center;">
+          <image-slot id="pf-map" shape="rounded" radius="16" placeholder="Drop a Saudi Arabia coverage map" style="width:100%;height:320px;"></image-slot>
+          <div>
+            <p style="font-size:13.5px;color:#3A3A33;margin-bottom:16px;">A growing distribution footprint across Saudi Arabia's major commercial centres.</p>
+            <div style="display:flex;flex-direction:column;gap:10px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;background:#EDF4EE;border-radius:12px;padding:12px 16px;"><span style="font-weight:700;font-size:14px;color:#0E5C3B;">Riyadh</span><span class="ar" style="font-size:14px;color:#137A4F;font-weight:700;">الرياض</span></div>
+              <div style="display:flex;align-items:center;justify-content:space-between;background:#EDF4EE;border-radius:12px;padding:12px 16px;"><span style="font-weight:700;font-size:14px;color:#0E5C3B;">Jeddah</span><span class="ar" style="font-size:14px;color:#137A4F;font-weight:700;">جدة</span></div>
+              <div style="display:flex;align-items:center;justify-content:space-between;background:#EDF4EE;border-radius:12px;padding:12px 16px;"><span style="font-weight:700;font-size:14px;color:#0E5C3B;">Dammam</span><span class="ar" style="font-size:14px;color:#137A4F;font-weight:700;">الدمام</span></div>
+              <div style="display:flex;align-items:center;justify-content:space-between;background:#EDF4EE;border-radius:12px;padding:12px 16px;"><span style="font-weight:700;font-size:14px;color:#0E5C3B;">Makkah &amp; Madinah</span><span class="ar" style="font-size:14px;color:#137A4F;font-weight:700;">مكة والمدينة</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ 10 · STRENGTHS ============ -->
+      <div class="pad page-break" style="background:#E8A33D;color:#1C1B19;">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;"><span style="width:26px;height:3px;background:#0E5C3B;"></span><span style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#0E5C3B;font-weight:800;">Our Strengths in Numbers</span><span class="ar" style="font-size:14px;color:#7A5A18;font-weight:700;">إنجازاتنا بالأرقام</span></div>
+        <h2 style="font-weight:800;font-size:38px;line-height:1.1;color:#1C1B19;margin:0 0 26px;">Built on scale and trust</h2>
+        <div class="keep" style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;">
+          <div style="background:#fff;border-radius:16px;padding:24px 20px;"><div style="font-family:'Cairo',sans-serif;font-weight:900;font-size:50px;line-height:1;color:#0E5C3B;">+1000</div><div style="font-size:13px;color:#3A3A33;margin-top:6px;font-weight:700;">Products · منتج</div></div>
+          <div style="background:#fff;border-radius:16px;padding:24px 20px;"><div style="font-family:'Cairo',sans-serif;font-weight:900;font-size:50px;line-height:1;color:#0E5C3B;">+50</div><div style="font-size:13px;color:#3A3A33;margin-top:6px;font-weight:700;">Brands · علامة</div></div>
+          <div style="background:#fff;border-radius:16px;padding:24px 20px;"><div style="font-family:'Cairo',sans-serif;font-weight:900;font-size:50px;line-height:1;color:#0E5C3B;">+100</div><div style="font-size:13px;color:#3A3A33;margin-top:6px;font-weight:700;">Clients · عميل</div></div>
+          <div style="background:#fff;border-radius:16px;padding:24px 20px;"><div style="font-family:'Cairo',sans-serif;font-weight:900;font-size:50px;line-height:1;color:#0E5C3B;">+10</div><div style="font-size:13px;color:#3A3A33;margin-top:6px;font-weight:700;">Cities · مدينة</div></div>
+        </div>
+        <div style="font-size:11.5px;color:#5C4413;margin-top:14px;font-weight:600;">Replace with House Cart's actual figures before publishing.</div>
+      </div>
+
+      <!-- ============ 11 · FUTURE VISION ============ -->
+      <div class="pad page-break" style="background:#EDF4EE;">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;"><span style="width:26px;height:3px;background:#E8A33D;"></span><span style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#137A4F;font-weight:800;">Future Vision</span><span class="ar" style="font-size:14px;color:#6A8A76;font-weight:600;">رؤيتنا المستقبلية</span></div>
+        <h2 style="font-weight:800;font-size:38px;line-height:1.1;color:#0E5C3B;margin:0 0 24px;">Where House Cart is heading</h2>
+        <div class="keep" style="display:flex;flex-direction:column;border-left:2px solid #C2D8C9;margin-left:6px;">
+          <div style="display:flex;gap:18px;align-items:flex-start;padding:0 0 22px;margin-left:-7px;"><div style="width:14px;height:14px;border-radius:50%;background:#137A4F;margin-top:4px;flex:none;"></div><div><div style="font-family:'Cairo',sans-serif;font-weight:700;font-size:19px;color:#0E5C3B;">Retail Expansion · توسّع التجزئة</div><div style="font-size:13px;color:#3A3A33;">Deeper shelf presence across national and regional chains.</div></div></div>
+          <div style="display:flex;gap:18px;align-items:flex-start;padding:0 0 22px;margin-left:-7px;"><div style="width:14px;height:14px;border-radius:50%;background:#137A4F;margin-top:4px;flex:none;"></div><div><div style="font-family:'Cairo',sans-serif;font-weight:700;font-size:19px;color:#0E5C3B;">New Brand Partnerships · علامات جديدة</div><div style="font-size:13px;color:#3A3A33;">Bringing more trusted international brands into the Kingdom.</div></div></div>
+          <div style="display:flex;gap:18px;align-items:flex-start;padding:0;margin-left:-7px;"><div style="width:14px;height:14px;border-radius:50%;background:#E8A33D;margin-top:4px;flex:none;"></div><div><div style="font-family:'Cairo',sans-serif;font-weight:700;font-size:19px;color:#0E5C3B;">Digital Commerce Growth · النمو الرقمي</div><div style="font-size:13px;color:#3A3A33;">Scaling marketplace presence and online B2B ordering.</div></div></div>
+        </div>
+      </div>
+
+      <!-- ============ 12 · CONTACT ============ -->
+      <div class="pad" style="background:#0E5C3B;color:#fff;">
+        <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;">
+          <span style="display:inline-flex;background:#fff;padding:8px;border-radius:14px;"><img src="assets/eb068b81-a16a-4c36-84a6-ffa4f8a99819.png" style="width:56px;height:56px;border-radius:8px;display:block;"></span>
+          <div><div style="font-family:'Cairo',sans-serif;font-weight:700;font-size:23px;color:#fff;">House Cart</div><div class="ar" style="font-size:14px;color:#BFD2C5;">عربة البيت · توزيع المواد الغذائية</div></div>
+        </div>
+        <div style="width:54px;height:4px;background:#E8A33D;border-radius:3px;margin-bottom:18px;"></div>
+        <h2 style="font-weight:800;font-size:30px;color:#fff;margin:0 0 4px;">Let's work together</h2>
+        <div class="ar" style="font-size:18px;color:#F2C04A;font-weight:700;margin-bottom:22px;">لنعمل معاً</div>
+        <div style="display:grid;grid-template-columns:1.4fr 0.6fr;gap:26px;align-items:start;">
+          <div class="keep" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;border-top:1px solid rgba(255,255,255,0.18);padding-top:20px;">
+            <div><div style="font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:#8FB7A1;margin-bottom:4px;">Website</div><div style="font-size:14px;color:#fff;">housecart-sa.com</div></div>
+            <div><div style="font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:#8FB7A1;margin-bottom:4px;">Email</div><div style="font-size:14px;color:#fff;">info@housecart-sa.com</div></div>
+            <div><div style="font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:#8FB7A1;margin-bottom:4px;">Phone</div><div style="font-size:14px;color:#fff;">+966 ——— ————</div></div>
+            <div><div style="font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:#8FB7A1;margin-bottom:4px;">Social</div><div style="font-size:14px;color:#fff;">@housecart_sa</div></div>
+          </div>
+          <div style="text-align:center;">
+            <image-slot id="pf-qr" shape="rounded" radius="10" src="assets/6874c5b3-17ce-4dc5-bb42-20af0889cf42.png" placeholder="QR" style="width:116px;height:116px;margin:0 auto;background:#fff;"></image-slot>
+            <div style="font-size:11px;color:#8FB7A1;margin-top:8px;">Scan to visit · امسح للزيارة</div>
+          </div>
+        </div>
+      </div>
+
+    </td></tr></tbody>
+    <tfoot><tr><td class="ftr-space"></td></tr></tfoot>
+  </table>
+</main>
+
+</x-dc>
+</body>
+</html>
